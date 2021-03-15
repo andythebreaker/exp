@@ -24,3 +24,14 @@ task main() {
           delay(50);
       }
 }
+
+
+       task main( ){
+	eraseDisplay( );			//要先清空螢幕	setMotorSpeed(motorA,50);	//馬達轉動
+	delay(1000);			//讓馬達轉1秒
+		setMotorSpeed(motorA,0); 	//停止馬達
+		int angle = getMotorEncoder(motorA);	//讀取馬達角度
+		displayString(1,”angle=”);	             	//LCD第一行顯示文字「angle=」
+		displayTextLine(2,”%d”,angle);	//LCD第二行中間顯示馬達轉角
+		delay(5000);                                    	//停頓五秒
+	}
