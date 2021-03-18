@@ -6,7 +6,11 @@
   "author": "andythebreaker <e24074724@mail.ncku.edu.tw>",
   "license": "MIT",
   "dependencies": {
+    "escape-string-regexp": "^4.0.0",
     "express": "^4.17.1",
-    "jquery": "^3.6.0"
+    "jquery": "^3.6.0",
+    "json-find": "^2.0.8",
+    "stripchar": "^1.2.1",
+    "tableify": "^1.1.0"
   }
 }

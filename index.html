@@ -31,7 +31,43 @@
 
 <body>
   <header></header>
+
+  <section class="container">
+    <form id="ajax_list_all_stu">
+      <button id="btn_list_all_stu">list all student</button>
+    </form>
+    <div id="table_of_all_stu"></div>
+  </section>
+
+  <section class="container">
+    <form id="find_stu">
+      <h5>學號</h5>
+      <input type="text" id="find_stu_id_input" placeholder="E24074724"><br>
+      <button id="btn_find_stu">find!</button>
+    </form>
+    <h5 id="find_stu_reasult"></h5>
+  </section>
+
+  <section class="container">
+    <h4>添加學生</h4>
+    <form id="add_stu">
+      <h5>學號</h5>
+      <input type="text" id="add_stu_id_input" placeholder="E24074724"><br>
+      <h5>姓名</h5>
+      <input type="text" id="add_stu_name_input" placeholder="andythebreaker"><br>
+      <button id="btn_add_stu">add!</button>
+    </form>
+  </section>
   
+  <section class="container">
+    <h4>移除學生</h4>
+    <form id="rm_stu">
+      <h5>學號</h5>
+      <input type="text" id="rm_stu_id_input" placeholder="E24074724"><br>
+      <button id="btn_rm_stu">remove!</button>
+    </form>
+  </section>
+
   <footer class="cs-footer pb-5 bg-dark">
     <div class="container pb-md-3">
       <div class="font-size-xs text-center text-light">
