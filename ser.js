@@ -8,11 +8,18 @@ const express = require('express')
 var tableify = require('tableify');
 const JsonFind = require("json-find");
 const bodyParser = require('body-parser')
+const multer = require('multer')
 var stripchar = require('stripchar').StripChar;
+var time = require('time');
+var ta = require('time-ago')  // node.js
 
 //host
 const app = express()
 const port = 18787
+
+//glob.
+var nowtime = new time.Date();
+var last_time = nowtime.toString();
 
 //app
 app.get('/', (req, res) => {
@@ -149,4 +156,30 @@ app.post('/post_rm_stu', (req, res) => {
             }*/
         }
     });
+})
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './audio/public');
+    },
+    filename: function (req, file, cb) {
+        cb(null, file.fieldname + '-' + Date.now() + '.mp3');
+    }
+})
+
+var upload = multer({ storage: storage })
+
+app.post('/upload', upload.single("audio"), function (req, res, next) {
+    //檔案路徑
+    var audio_up = req.file.path;
+    //res.render('index', { title : 'Express' ,image:image});
+    res.status(200).send();
+    nowtime = new time.Date();
+    console.log(nowtime.toString());
+    last_time = nowtime.toString();
+});
+
+app.post('/audio/last_time_up', (req, res) => {
+    //console.log(ta.ago(last_time));
+    res.send(ta.ago(last_time));
 })
